@@ -1,15 +1,21 @@
 // src/App.jsx
+import AppBar from "./AppBar";
+import PilotList from "./PilotList";
+import officers from "../officers.json";
 
-import Product from "./Product";
+const ActiveOfficers = officers.filter((officer) => officer.active);
+const YoungOfficerws = officers.filter((officer) => officer.age < 40);
 
 export default function App() {
   return (
     <div>
-      <h1>Best selling Tacos:D Trying Versell</h1>
-
-      <Product />
-      <Product />
-      <Product />
+      <h1>Officers</h1>
+      <h2>Active officers</h2>
+      <PilotList items={ActiveOfficers} />
+      <h2>Young Officer</h2>
+      <PilotList items={YoungOfficerws} />
+      <AppBar />
+      <PilotList items={officers} />
     </div>
   );
 }
