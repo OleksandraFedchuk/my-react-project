@@ -1,5 +1,5 @@
-import Logo from "../Logo";
-import UserMenu from "../UserMenu";
+import Logo from "../Logo/Logo";
+import UserMenu from "../UserMenu/UserMenu";
 
 export default function AppBar() {
   return (
