@@ -1,4 +1,4 @@
-import PilotProfile from "../PilotProfile";
+import PilotProfile from "../PilotProfile/PilotProfile";
 
 export default function PilotList({ items }) {
   return (
