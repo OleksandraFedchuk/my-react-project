@@ -1,8 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import css from "./Reader.module.css";
 
 export default function Reader({ items }) {
-  const [selectedInsex, setSelectedIndex] = useState(0);
+  // const [selectedInsex, setSelectedIndex] = useState(0);
+  const [selectedInsex, setSelectedIndex] = useState(() => {
+    const savedInsex = localStorage.getItem('"Key-index"');
+
+    if (savedInsex === !null) {
+      return JSON.parse(savedInsex);
+    }
+    return 0;
+  });
 
   const currentArticle = items[selectedInsex];
 
@@ -13,6 +21,11 @@ export default function Reader({ items }) {
   const handlerNext = () => {
     setSelectedIndex(selectedInsex + 1);
   };
+
+  useEffect(() => {
+    console.log("localStorage.setItem", selectedInsex);
+    localStorage.setItem("Key-index", JSON.stringify(selectedInsex));
+  }, [selectedInsex]);
 
   const isFirstElement = selectedInsex === 0;
   const isLastElement = selectedInsex === items.length - 1;
