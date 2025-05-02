@@ -31,6 +31,7 @@ export default function App() {
       <ClickMouse />
       <ClickMouse text="Hi:" />
       <ClickMouse text="Hello:" />
+      <ClickMouse text="Bonsoir:" />
       <PilotList items={ActiveOfficers} />
       <h2>Young Officer</h2>
       <PilotList items={YoungOfficerws} />
