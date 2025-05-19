@@ -4,6 +4,7 @@ import ClickMouse from "../ClickMouse/ClickMouse";
 import Accordion from "../Accordion/Accordion";
 import ClickTracker from "../ClickTracker/ClickTracker";
 import SideBar from "../SideBar/SideBar";
+import Counter2 from "../../Counter2/Counter2";
 import Reader from "../Reader/Reader";
 import officers from "../../officers.json";
 import accordionitems from "../../accordionItems.json";
@@ -20,8 +21,17 @@ export default function App() {
   const openSideBar = () => setIsOpen(true);
   const closeSideBar = () => setIsOpen(false);
 
+  const [clicks, setClicks] = useState(0);
+
+  const handleClick = () => {
+    setClicks(clicks + 1);
+  };
+
   return (
     <div>
+      <Counter2 value={clicks} onUpdate={handleClick} />
+      <Counter2 value={clicks} onUpdate={handleClick} />
+      <Counter2 value={clicks} onUpdate={handleClick} />
       <h1 className={css.title}>Officers : Active and Young</h1>
       <h2>Active officers</h2>
       <button onClick={openSideBar}>Open</button>
